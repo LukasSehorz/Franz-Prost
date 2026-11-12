@@ -1,0 +1,4 @@
+# Netlify: Die fertige Seite liegt im Ordner "website", ein Build ist nicht nötig.
+[build]
+  publish = "website"
+  command = ""
