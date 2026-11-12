@@ -4,11 +4,14 @@
 
   /* ------------------------------------------------------------------
      KONFIGURATION
-     FORM_ENDPOINT: Adresse, an die die Anmeldung gesendet wird
-     (z. B. Formspree, Make/Zapier-Webhook, Brevo, eigenes PHP-Skript).
-     Solange leer, zeigt das Formular einen Vorschau-Hinweis statt zu senden.
+     Der Kauf läuft über Digistore24 (Produkt 763425).
+     Bis EARLY_END führen alle Kauf-Knöpfe zum Frühbucherpreis,
+     danach automatisch zum normalen Preis.
      ------------------------------------------------------------------ */
-  var FORM_ENDPOINT = '';
+  var BUY_URL = 'https://www.checkout-ds24.com/product/763425';
+  var BUY_URL_EARLY = BUY_URL + '?voucher=FRUEHBUCHER2027';
+  var EARLY_END = new Date('2027-01-09T00:00:00+01:00'); // Frühbucher gilt bis 08.01.2027, 23:59 Uhr
+  var FORM_ENDPOINT = ''; // nur noch für ein optionales Formular (#hf27-form), derzeit nicht auf der Seite
 
   var EVENTS = [
     { date: new Date('2027-01-08T19:00:00+01:00'), label: 'bis zum Informationsabend am 8. Januar 2027' },
@@ -19,6 +22,12 @@
   var root = document.querySelector('.hf27');
   if (!root) return;
   root.classList.add('hf27-js');
+
+  /* ---------- Kauf-Knöpfe und Preisanzeige ---------- */
+  var early = Date.now() < EARLY_END.getTime();
+  document.querySelectorAll('[data-hf27-buy]').forEach(function (a) { a.href = early ? BUY_URL_EARLY : BUY_URL; });
+  var priceEarly = root.querySelector('[data-hf27-early]'), priceRegular = root.querySelector('[data-hf27-regular]');
+  if (priceEarly && priceRegular) { priceEarly.hidden = !early; priceRegular.hidden = early; }
 
   /* ---------- Countdown ---------- */
   var cd = root.querySelector('[data-hf27-countdown]');

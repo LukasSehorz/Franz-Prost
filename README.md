@@ -25,6 +25,6 @@ Die Seite verwendet root-relative Pfade (`/wp-content/...`) und muss deshalb im 
 ## Vor dem Livegang der Landingpage
 
 - **VSL-Video:** In `website/heilfasten-2027/index.html` beim Element `.hf27-video` das Attribut `data-video-src` setzen (MP4-Pfad oder YouTube-/Vimeo-Link).
-- **Anmeldeformular:** In `website/heilfasten-2027/heilfasten-2027.js` die Adresse `FORM_ENDPOINT` eintragen. Bis dahin zeigt das Formular einen Vorschau-Hinweis und sendet keine Daten.
+- **Kauf über Digistore24:** Alle Knöpfe „Jetzt anmelden“ / „Jetzt Platz sichern“ führen zum Digistore-Produkt 763425. Links und Frühbucher-Ende (08.01.2027) stehen oben in `website/heilfasten-2027/heilfasten-2027.js` (`BUY_URL`, `BUY_URL_EARLY`, `EARLY_END`). Ein Anmeldeformular gibt es auf der Seite nicht mehr.
 - **Kontaktformular (Seite Kontakt):** Lief über WordPress und braucht auf dem statischen Hosting ebenfalls einen Versanddienst.
-- **Meta-Pixel:** Bei Bedarf einbinden und an den Cookie-Banner (Complianz) koppeln. Nach einer erfolgreichen Anmeldung wird automatisch `fbq('track', 'Lead')` ausgelöst.
+- **Meta-Pixel:** Bei Bedarf einbinden und an den Cookie-Banner (Complianz) koppeln.
