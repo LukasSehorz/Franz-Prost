@@ -1,0 +1,12 @@
+/* Menü-Erweiterung „Heilfasten 2027“ – gilt auf allen Seiten.
+   Die Logo-Spalte wird nur so breit wie das Logo; das Menü erhält den restlichen Platz.
+   Optik von Logo und Menü bleibt unverändert, der 7. Menüpunkt passt aber in eine Zeile. */
+@media (min-width: 681px) {
+  #tbp_header .row_inner:has(> .tb_k9u024) { grid-template-columns: auto 1fr !important; }
+}
+@media (min-width: 681px) and (max-width: 1199px) {
+  #tbp_header .tb_qhbc11 .nav > li > a { padding-left: 6px !important; padding-right: 6px !important; }
+}
+@media (min-width: 1025px) and (max-width: 1199px) {
+  #tbp_header .tb_qhbc11 .nav > li > a { font-size: 15px !important; }
+}

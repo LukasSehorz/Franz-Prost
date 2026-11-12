@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Vertrauliche Kundenunterlagen im Projektordner (nicht öffentlich veröffentlichen).
+# Gilt nur für den Hauptordner – Dateien in website/ sind davon nicht betroffen.
+/*.docx
+/*.pptx
+/*.xlsx
+/*.pdf
+/*.jpg
+/*.JPG
+/*.jpeg
+/*.png
+/*.bmp
+/_Wissensbasis_Heilfasten_2027.md
