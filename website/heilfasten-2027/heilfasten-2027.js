@@ -29,6 +29,23 @@
   var priceEarly = root.querySelector('[data-hf27-early]'), priceRegular = root.querySelector('[data-hf27-regular]');
   if (priceEarly && priceRegular) { priceEarly.hidden = !early; priceRegular.hidden = early; }
 
+  /* ---------- Partner-Zuordnung (Digistore24-Promocode) ----------
+     Kommt ein Besucher über den Link eines Partners (…/heilfasten-2027/?aff=PARTNER),
+     hängt das Digistore-Skript den Partner an alle Kauf-Knöpfe an. So bekommt der
+     Partner seine Provision auch dann, wenn der Browser Cookies blockiert.
+     WICHTIG: muss NACH dem Setzen der Kauf-Links oben laufen, sonst wird der
+     Partner wieder überschrieben. Code aus Digistore: Einstellungen > Affiliate
+     Tracking > Promocode für Verkaufsseite (Produkt 763425). */
+  var ds = document.createElement('script');
+  ds.src = 'https://www.digistore24-scripts.com/service/digistore.js';
+  ds.async = true;
+  ds.onload = function () {
+    if (typeof window.digistorePromocode === 'function') {
+      window.digistorePromocode({ product_id: 763425, adjust_domain: true });
+    }
+  };
+  document.head.appendChild(ds);
+
   /* ---------- Countdown ---------- */
   var cd = root.querySelector('[data-hf27-countdown]');
   if (cd) {

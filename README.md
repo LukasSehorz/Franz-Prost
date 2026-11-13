@@ -28,3 +28,11 @@ Die Seite verwendet root-relative Pfade (`/wp-content/...`) und muss deshalb im 
 - **Kauf über Digistore24:** Alle Knöpfe „Jetzt anmelden“ / „Jetzt Platz sichern“ führen zum Digistore-Produkt 763425. Links und Frühbucher-Ende (08.01.2027) stehen oben in `website/heilfasten-2027/heilfasten-2027.js` (`BUY_URL`, `BUY_URL_EARLY`, `EARLY_END`). Ein Anmeldeformular gibt es auf der Seite nicht mehr.
 - **Kontaktformular (Seite Kontakt):** Lief über WordPress und braucht auf dem statischen Hosting ebenfalls einen Versanddienst.
 - **Meta-Pixel:** Bei Bedarf einbinden und an den Cookie-Banner (Complianz) koppeln.
+
+## Partner-Zuordnung (Digistore24-Promocode)
+
+Partner bewerben die Seite mit `…/heilfasten-2027/?aff=IHRE-DIGISTORE-ID` (optional `&cam=KAMPAGNE`).
+Das Digistore-Skript wird in `website/heilfasten-2027/heilfasten-2027.js` geladen (Abschnitt „Partner-Zuordnung“)
+und hängt den Partner beim Klick an alle Kauf-Knöpfe (`data-hf27-buy`) an. Es muss nach dem Setzen der
+Kauf-Links laufen. Bei einem Umzug auf eine andere Domain: die Domain in Digistore unter
+Einstellungen > Affiliate Tracking > Promocode-Domains eintragen.
