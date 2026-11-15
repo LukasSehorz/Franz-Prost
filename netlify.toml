@@ -2,3 +2,9 @@
 [build]
   publish = "website"
   command = ""
+
+# Kalenderdatei Infoabend: als Kalendertermin ausliefern (iPhone öffnet dann „Zum Kalender hinzufügen“)
+[[headers]]
+  for = "/*.ics"
+  [headers.values]
+    Content-Type = "text/calendar; charset=utf-8"

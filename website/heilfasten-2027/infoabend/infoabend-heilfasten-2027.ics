@@ -1,0 +1,41 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Akademie fuer ein besseres Leben//Heilfasten 2027//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Infoabend Heilfasten 2027
+X-WR-TIMEZONE:Europe/Berlin
+BEGIN:VEVENT
+UID:infoabend-heilfasten-2027@akademie-besseres-leben.eu
+DTSTAMP:20261115T120000Z
+DTSTART:20270108T180000Z
+DTEND:20270108T193000Z
+SUMMARY:Infoabend Heilfasten 2027 mit Franz Prost
+LOCATION:Zoom: https://us06web.zoom.us/j/85336517832?pwd=8vDArGoKzyeqLWbFhb
+ hGF5mY0ucFz8.1
+URL:https://us06web.zoom.us/j/85336517832?pwd=8vDArGoKzyeqLWbFhbhGF5mY0ucFz
+ 8.1
+DESCRIPTION:Infoabend zum Heilfasten 2027 mit Franz Prost\, live per Zoom.\
+ n\nZum Zoom: https://us06web.zoom.us/j/85336517832?pwd=8vDArGoKzyeqLWbFhbh
+ GF5mY0ucFz8.1\nMeeting ID: 853 3651 7832\n\nAlle Infos: https://akademie-b
+ esseres-leben.eu/heilfasten-2027/infoabend/\n\nAkademie für ein besseres 
+ Leben
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P2D
+DESCRIPTION:In zwei Tagen: Infoabend Heilfasten 2027 um 19:00 Uhr
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Morgen: Infoabend Heilfasten 2027 um 19:00 Uhr
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1H
+DESCRIPTION:In einer Stunde: Infoabend Heilfasten 2027 per Zoom
+END:VALARM
+END:VEVENT
+END:VCALENDAR

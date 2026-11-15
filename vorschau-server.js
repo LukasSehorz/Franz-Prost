@@ -10,7 +10,7 @@ const TYPES = {
   html: 'text/html; charset=utf-8', css: 'text/css; charset=utf-8', js: 'application/javascript; charset=utf-8',
   json: 'application/json; charset=utf-8', svg: 'image/svg+xml', png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg',
   gif: 'image/gif', webp: 'image/webp', ico: 'image/x-icon', woff: 'font/woff', woff2: 'font/woff2', ttf: 'font/ttf',
-  mp4: 'video/mp4', webm: 'video/webm', pdf: 'application/pdf', xml: 'application/xml', txt: 'text/plain; charset=utf-8',
+  mp4: 'video/mp4', webm: 'video/webm', pdf: 'application/pdf', xml: 'application/xml', txt: 'text/plain; charset=utf-8', ics: 'text/calendar; charset=utf-8',
 };
 
 http.createServer((req, res) => {
