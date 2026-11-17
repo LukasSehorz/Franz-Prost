@@ -247,13 +247,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <!-- /module text --><!-- module contact -->
 <div  id="tb_swm5582" class="module module-contact tb_swm5582 contact-style1 " data-lazy="1">
     
-	<form class="builder-contact" id="tb_swm5582-form" method="post" name="kontakt" action="/kontakt/" data-netlify="true" netlify-honeypot="bot-field"
+	<form class="builder-contact" id="tb_swm5582-form" method="post" action="/api/kontakt"
 		data-post-id="273"
 		data-element-id="swm5582"
 		data-orig-id="273"
 	>
     <div class="contact-message"></div>
-	<input type="hidden" name="form-name" value="kontakt" /><p style="display:none"><label>Nicht ausfüllen: <input name="bot-field" /></label></p>	<div class="builder-contact-fields tf_rel">
+	<input type="hidden" name="pruefwert" value="" /><p style="display:none"><label>Nicht ausfüllen: <input name="bot-field" /></label></p>	<div class="builder-contact-fields tf_rel">
 		    		    		    <div class="builder-contact-field builder-contact-field-extra builder-contact-text-field">
 								<label class="control-label" for="field_extra_tb_swm5582_0">
 					
@@ -587,14 +587,22 @@ var complianz = {"prefix":"cmplz_","debug":"","user_banner_id":"1","set_cookies"
 
 
 <!-- SCHEMA BEGIN --><script type="application/ld+json">[{"@context":"https:\/\/schema.org","@type":"WebPage","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/akademie-besseres-leben.eu\/kontakt\/"},"headline":"Kontakt","datePublished":"2024-10-30T09:22:49+01:00","dateModified":"2026-09-24T09:33:54+02:00","description":""}]</script><!-- /SCHEMA END -->			<script>
-/* Kontaktformular: sendet an Netlify Forms statt an WordPress (admin-ajax gibt es hier nicht). */
+/* Kontaktformular: sendet über /api/kontakt (Netlify-Funktion → Resend → info@). WordPress gibt es hier nicht mehr. */
 (function(){var f=document.getElementById('tb_swm5582-form');if(!f)return;
+var pw=f.querySelector('[name=pruefwert]');
+fetch('/api/kontakt').then(function(r){return r.json();}).then(function(d){if(pw&&d.t)pw.value=d.t;}).catch(function(){});
+var namen={field_extra_0:'vorname',field_extra_1:'name','contact-email':'email','contact-subject':'betreff',field_extra_2:'telefon','contact-message':'nachricht',gdpr:'datenschutz','bot-field':'bot-field',pruefwert:'pruefwert'};
 f.addEventListener('submit',function(e){e.preventDefault();e.stopImmediatePropagation();
-var m=f.querySelector('.contact-message'),b=f.querySelector('button[type=submit]');if(b)b.disabled=true;
-fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
-.then(function(r){if(!r.ok)throw 0;f.reset();m.innerHTML='<p class="ui light-green contact-success">Vielen Dank für Ihre Nachricht. Wir melden uns so bald wie möglich bei Ihnen.</p>';})
-.catch(function(){m.innerHTML='<p class="ui red contact-error">Die Nachricht konnte nicht gesendet werden. Bitte schreiben Sie uns an info@akademie-besseres-leben.eu.</p>';})
-.then(function(){if(b)b.disabled=false;});},true);})();
+var m=f.querySelector('.contact-message'),b=f.querySelector('button[type=submit]'),daten={};
+new FormData(f).forEach(function(v,k){if(namen[k])daten[namen[k]]=v;});
+if(b)b.disabled=true;
+fetch('/api/kontakt',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(daten)})
+.then(function(r){return r.json().then(function(j){if(!r.ok)throw j;return j;});})
+.then(function(){f.reset();m.innerHTML='<p class="ui light-green contact-success">Vielen Dank für Ihre Nachricht. Wir melden uns so bald wie möglich bei Ihnen.</p>';})
+.catch(function(j){m.innerHTML='<p class="ui red contact-error">'+((j&&j.fehler&&r400(j))||'Die Nachricht konnte nicht gesendet werden. Bitte schreiben Sie uns an info@akademie-besseres-leben.eu.')+'</p>';})
+.then(function(){if(b)b.disabled=false;});},true);
+function r400(j){return /Pflichtfelder|Datenschutz/.test(j.fehler)?j.fehler:'';}
+})();
 </script>
 </body>
 		</html>
