@@ -131,7 +131,7 @@
 
   /* ---------- Unterseite Infoabend: Kalenderauswahl und Tag des Infoabends ----------
      [data-ia-kal] öffnet beim Klick die Auswahl (Apple, Google, Outlook, Datei).
-     Am 08.01.2027 bis 21 Uhr wird „Direkt zum Infoabend“ zum Hauptbutton (Klasse ia-heute),
+     Am 08.01.2027 bis 21:30 Uhr (Ende des Infoabends) wird „Direkt zum Infoabend“ zum Hauptbutton (Klasse ia-heute),
      Texte und Links mit data-ia-heute-text / data-ia-heute-href werden umgestellt. */
   var kals = root.querySelectorAll('[data-ia-kal]');
   var closeKal = function () {
@@ -165,7 +165,7 @@
     document.addEventListener('click', function (e) { if (!e.target.closest('[data-ia-kal]')) closeKal(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeKal(); });
   }
-  if (now >= new Date('2027-01-08T00:00:00+01:00').getTime() && now < new Date('2027-01-08T21:00:00+01:00').getTime()) {
+  if (now >= new Date('2027-01-08T00:00:00+01:00').getTime() && now < new Date('2027-01-08T21:30:00+01:00').getTime()) {
     root.classList.add('ia-heute');
     root.querySelectorAll('[data-ia-heute-text]').forEach(function (el) { el.textContent = el.getAttribute('data-ia-heute-text'); });
     root.querySelectorAll('[data-ia-heute-href]').forEach(function (el) { el.href = el.getAttribute('data-ia-heute-href'); el.target = '_blank'; el.rel = 'noopener'; });

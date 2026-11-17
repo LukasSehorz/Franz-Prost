@@ -795,6 +795,11 @@
 .hf27-book__list li { display: grid; grid-template-columns: 24px 1fr; gap: 12px; align-items: start; margin: 0 0 10px; font-size: 16px; line-height: 24px; color: var(--text); }
 .hf27-book__list .hf27-ico { width: 22px; height: 22px; margin-top: 1px; color: var(--lime-dark); stroke-width: 3; }
 .hf27-book .hf27-btn { width: 100%; justify-content: center; }
+/* Aufteilung des Preises: Fördermitgliedschaft + Förderbeitrag */
+.hf27 .hf27-price__split { margin: 6px 0 0 !important; color: var(--ink); font-size: 17px; line-height: 25px; font-weight: 700; }
+/* Hinweis Teilnahmeerklärung unter dem Kauf-Knopf */
+.hf27 .hf27-book__erklaerung { display: flex; align-items: flex-start; gap: 10px; margin: 16px 0 0 !important; padding: 12px 14px; background: var(--soft-teal); border-radius: 12px; color: var(--ink); font-size: 15px; line-height: 23px; text-align: left; }
+.hf27-book__erklaerung .hf27-ico { flex: none; width: 22px; height: 22px; margin-top: 1px; color: var(--teal); }
 @media (max-width: 768px) {
   .hf27-price__now { font-size: 40px; line-height: 46px; }
   .hf27-member { display: block; padding: 12px 14px; }
@@ -996,6 +1001,7 @@
 .hf27-ticket__until { display: block; margin: 2px 0 10px; color: rgba(255, 255, 255, .85); font-size: 14px; line-height: 20px; }
 .hf27-ticket__stub .hf27-btn { width: 100%; justify-content: center; padding-left: 18px; padding-right: 18px; }
 .hf27-ticket__member { display: block; margin: 0 0 18px; padding: 8px 12px; border-radius: 10px; background: rgba(255, 255, 255, .14); color: #fff; font-size: 14px; line-height: 20px; font-weight: 600; }
+.hf27-ticket__member small { display: block; margin-top: 3px; color: rgba(255, 255, 255, .85); font-size: 13px; line-height: 18px; font-weight: 400; }
 .hf27-ticket__pay { display: block; margin-top: 12px; color: rgba(255, 255, 255, .75); font-size: 12px; line-height: 17px; }
 .hf27-ticket__note { max-width: 1080px; margin: 22px auto 0 !important; text-align: center; }
 
@@ -1201,6 +1207,49 @@
 .ia-musik__img img:first-child { margin-left: 0; }
 .ia-musik p { margin: 0 !important; color: var(--ia-muted); font-size: 14px; line-height: 21px; }
 .ia-musik b { color: var(--ia-ink); }
+
+/* 2 · Zeitplan des Infoabends (Uhrzeit, Titel, Person, Stichpunkte) */
+.ia-prog--plan .ia-prog__grid { grid-template-columns: .8fr 1.2fr; gap: 60px; align-items: start; }
+.ia-prog--plan .ia-prog__bilder { position: sticky; top: 140px; }
+.ia-plan__datum { margin: 0 0 10px !important; color: var(--ia-ink); font-size: 17px; line-height: 26px; }
+.ia-plan__datum b { color: var(--ia-green); }
+.ia-plan__eck { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 26px; margin: 0 0 26px !important; padding: 0; font-size: 15px; line-height: 23px; }
+.ia-plan__eck div { margin: 0; }
+.ia-plan__eck dt { display: inline; margin: 0; color: var(--ia-muted); font-weight: 400; }
+.ia-plan__eck dt::after { content: ": "; }
+.ia-plan__eck dd { display: inline; margin: 0; color: var(--ia-ink); font-weight: 700; }
+.ia-plan { list-style: none; margin: 0 !important; padding: 0 !important; text-align: left; }
+.ia-plan__punkt { display: grid; grid-template-columns: 92px 1fr; gap: 0 20px; margin: 0 !important; padding: 20px 0 !important; border-top: 1px dotted rgba(173, 143, 58, .6); }
+.ia-plan__punkt:last-child { border-bottom: 1px dotted rgba(173, 143, 58, .6); }
+.hf27 .ia-plan__zeit { margin: 0 !important; padding-top: 1px; }
+.ia-plan__von { display: block; color: var(--ia-gold); font-size: 24px; line-height: 28px; font-weight: 800; }
+.ia-plan__von small { font-size: 16px; font-weight: 700; }
+.ia-plan__bis { display: block; margin-top: 2px; color: var(--ia-muted); font-size: 14px; line-height: 20px; }
+.hf27 .ia-plan__titel { margin: 0 0 10px !important; padding: 0 !important; color: var(--ia-green); font-size: 20px; line-height: 27px; font-weight: 800; }
+.ia-plan__person { display: flex; align-items: center; gap: 12px; margin: 0 0 10px; }
+.ia-plan__person img { flex: none; width: 48px; height: 48px; border-radius: 50%; object-fit: cover; object-position: center 22%; border: 2px solid var(--ia-gold-hell); }
+.hf27 .ia-plan__person p { margin: 0 !important; }
+.ia-plan__person b { display: block; color: var(--ia-ink); font-size: 16px; line-height: 22px; font-weight: 700; }
+.ia-plan__person span { display: block; color: var(--ia-muted); font-size: 14px; line-height: 20px; }
+.ia-plan__liste { list-style: none !important; margin: 0 !important; padding: 0 !important; }
+.ia-plan__liste li { position: relative; margin: 0 !important; padding: 3px 0 3px 20px !important; color: var(--ia-ink); font-size: 16px; line-height: 24px; list-style: none !important; }
+.ia-plan__liste li::before { content: ""; position: absolute; left: 2px; top: 12px; width: 7px; height: 7px; border-radius: 50%; background: var(--ia-gold); }
+.hf27 .ia-plan__zitat { margin: 30px 0 0 !important; padding: 0 !important; border: 0 !important; background: none !important; color: var(--ia-green); font-size: 20px; line-height: 30px; font-weight: 600; font-style: normal; text-align: center; }
+.ia-plan__zitat cite { display: block; margin-top: 8px; color: var(--ia-gold); font-size: 13px; line-height: 18px; font-style: normal; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; }
+@media (max-width: 1024px) {
+  .ia-prog--plan .ia-prog__grid { grid-template-columns: 1fr; gap: 50px; }
+  .ia-prog--plan .ia-prog__bilder { position: relative; top: auto; }
+}
+@media (max-width: 600px) {
+  .ia-plan__punkt { grid-template-columns: 1fr; padding: 18px 0 !important; }
+  .hf27 .ia-plan__zeit { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 8px; margin: 0 0 6px !important; padding: 0; }
+  .ia-plan__von { display: inline; font-size: 22px; line-height: 28px; }
+  .ia-plan__bis { display: inline; margin: 0; font-size: 15px; }
+  .hf27 .ia-plan__titel { font-size: 19px; line-height: 26px; }
+  .ia-plan__eck { display: block; }
+  .ia-plan__eck div { margin: 0 0 2px; }
+  .hf27 .ia-plan__zitat { font-size: 18px; line-height: 27px; }
+}
 
 /* 3 · Paket und Startpreis */
 .ia-preis { position: relative; padding: 100px 0; background: radial-gradient(ellipse at 80% 20%, var(--ia-green-2), var(--ia-green) 60%); color: #fff; }
