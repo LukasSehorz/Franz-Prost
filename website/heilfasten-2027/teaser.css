@@ -1,0 +1,74 @@
+/* =====================================================================
+   Startseite: Hinweis auf das Heilfasten 2027 direkt unter dem Hero
+   Nur auf der Startseite eingebunden. Alle Regeln mit Präfix hf27-teaser,
+   Farben wie auf der Heilfasten-Seite (Petrol #01676B, Lime #AFCA0B).
+   ===================================================================== */
+.hf27-teaser {
+  --teal: #01676b;
+  --teal-dark: #014f52;
+  --lime: #afca0b;
+  --lime-dark: #9bb30a;
+  --lime-text: #687c00;
+  --ink: #000000;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 44px 0;
+  background: #f1f7f7;
+  border-top: 1px solid rgba(1, 103, 107, .10);
+  font-family: 'Open Sans', sans-serif;
+  text-align: left;
+}
+.hf27-teaser *, .hf27-teaser *::before, .hf27-teaser *::after { box-sizing: border-box; }
+.hf27-teaser__wrap {
+  max-width: 1200px; margin: 0 auto; padding: 0 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px 48px;
+}
+.hf27-teaser__text { flex: 1 1 520px; min-width: 0; max-width: 720px; }
+.hf27-teaser .hf27-teaser__kicker {
+  display: inline-block; margin: 0 0 10px; padding: 4px 12px; border-radius: 800px;
+  background: rgba(175, 202, 11, .22); color: var(--lime-text);
+  font-size: 14px; line-height: 20px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase;
+}
+.hf27-teaser .hf27-teaser__title {
+  margin: 0 0 10px !important; padding: 0;
+  font-family: 'Open Sans', sans-serif; font-size: 34px; line-height: 42px; font-weight: 800; letter-spacing: -.5px;
+  color: var(--teal); text-align: left; text-transform: none;
+}
+.hf27-teaser__nb { white-space: nowrap; }
+.hf27-teaser .hf27-teaser__lead {
+  margin: 0 !important; padding: 0;
+  font-size: 18px; line-height: 28px; color: var(--ink); font-weight: 400;
+}
+.hf27-teaser__actions { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.hf27-teaser a.hf27-teaser__btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 16px 40px; border-radius: 800px; border: 1px solid rgba(0, 0, 0, .05);
+  background: var(--lime); color: #fff !important; text-decoration: none !important;
+  font-size: 17px; line-height: 22px; font-weight: 700; white-space: nowrap;
+  box-shadow: 0 6px 10px rgba(76, 127, 245, .45);
+  transition: background-color .3s linear, transform .2s ease;
+}
+.hf27-teaser a.hf27-teaser__btn:hover, .hf27-teaser a.hf27-teaser__btn:focus-visible { background: var(--lime-dark); transform: translateY(-1px); }
+.hf27-teaser a.hf27-teaser__btn:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+.hf27-teaser__btn svg { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.hf27-teaser a.hf27-teaser__link {
+  display: inline-block; padding: 8px 4px;
+  color: var(--teal) !important; font-size: 16px; line-height: 22px; font-weight: 700;
+  text-decoration: underline !important; text-underline-offset: 3px;
+}
+.hf27-teaser a.hf27-teaser__link:hover { color: var(--teal-dark) !important; }
+
+@media (max-width: 900px) {
+  .hf27-teaser { padding: 36px 0 40px; }
+  .hf27-teaser__wrap { flex-direction: column; align-items: flex-start; }
+  .hf27-teaser__text { flex: none; max-width: none; }
+  .hf27-teaser__actions { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 14px 24px; }
+}
+@media (max-width: 680px) {
+  .hf27-teaser { padding: 32px 0 36px; }
+  .hf27-teaser .hf27-teaser__kicker { font-size: 13px; }
+  .hf27-teaser .hf27-teaser__title { font-size: 27px; line-height: 34px; }
+  .hf27-teaser .hf27-teaser__lead { font-size: 17px; line-height: 27px; }
+  .hf27-teaser__actions { width: 100%; flex-direction: column; align-items: stretch; text-align: center; }
+  .hf27-teaser a.hf27-teaser__btn { width: 100%; padding: 15px 24px; }
+}
