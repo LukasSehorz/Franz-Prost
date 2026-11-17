@@ -10,3 +10,18 @@
 @media (min-width: 1025px) and (max-width: 1199px) {
   #tbp_header .tb_qhbc11 .nav > li > a { font-size: 15px !important; }
 }
+
+/* Dropdown „Heilfasten 2027“ (Hier anmelden, Infoabend) in den Farben der Landingpage, kompakt */
+#menu-item-2027 > .sub-menu { background: #01676b !important; border-top: 2px solid #afca0b; border-radius: 0 0 8px 8px; box-shadow: 0 10px 24px rgba(1, 103, 107, .22) !important; padding: 4px !important; min-width: 168px !important; width: auto !important; }
+#menu-item-2027 > .sub-menu > li { margin: 0 !important; border: 0 !important; }
+#menu-item-2027 > .sub-menu > li > a { display: block; color: #fff !important; background: transparent !important; border: 0 !important; border-radius: 5px; font-size: 14px !important; line-height: 19px !important; font-weight: 600; padding: 7px 12px !important; white-space: nowrap; transition: background-color .2s ease; }
+#menu-item-2027 > .sub-menu > li > a:hover, #menu-item-2027 > .sub-menu > li > a:focus-visible { background: rgba(255, 255, 255, .14) !important; color: #fff !important; }
+#menu-item-2027 > .sub-menu > #menu-item-2028 > a { background: #afca0b !important; font-weight: 700; margin-bottom: 3px; }
+#menu-item-2027 > .sub-menu > #menu-item-2028 > a:hover, #menu-item-2027 > .sub-menu > #menu-item-2028 > a:focus-visible { background: #9bb30a !important; }
+#menu-item-2027 > .sub-menu > .current-menu-item > a { background: rgba(255, 255, 255, .14) !important; }
+/* im Handymenü etwas Abstand zum Rand */
+.mobile-menu-module #menu-item-2027 > .sub-menu { margin: 4px 0 8px !important; border-radius: 8px; }
+#tbp_header #menu-item-2027 > .sub-menu { min-width: 0 !important; width: 170px !important; }
+.mobile-menu-module #menu-item-2027 > .sub-menu { width: auto !important; }
+#tbp_header #menu-item-2027 > .sub-menu > li { float: none !important; display: block !important; width: auto !important; }
+#tbp_header #menu-item-2027 > .sub-menu > li > a { width: auto !important; max-width: 100%; box-sizing: border-box; }

@@ -110,6 +110,25 @@
   root.querySelectorAll('[data-hf27-early]').forEach(function (el) { el.hidden = !early; });
   root.querySelectorAll('[data-hf27-regular]').forEach(function (el) { el.hidden = early; });
 
+  /* ---------- Sprungziel aus dem Menü (z. B. /heilfasten-2027/#anmeldung) ----------
+     Der Browser springt, bevor Bilder und Videos weiter oben geladen sind; danach verrutscht
+     das Ziel. Deshalb nach dem Laden noch einmal sauber unter den festen Header springen.
+     Sobald der Besucher selbst scrollt oder tippt, wird nichts mehr verschoben. */
+  if (location.hash.length > 1) {
+    var sprungZiel = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (sprungZiel && root.contains(sprungZiel)) {
+      var selbstGescrollt = false;
+      ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) { window.addEventListener(ev, function () { selbstGescrollt = true; }, { passive: true, once: true }); });
+      var springen = function () {
+        if (selbstGescrollt) return;
+        var kopf = document.getElementById('tbp_header');
+        var abstand = (kopf ? kopf.getBoundingClientRect().height : 0) + 12;
+        window.scrollTo({ top: sprungZiel.getBoundingClientRect().top + window.scrollY - abstand, behavior: 'instant' });
+      };
+      window.addEventListener('load', function () { springen(); setTimeout(springen, 500); setTimeout(springen, 1400); });
+    }
+  }
+
   /* ---------- Unterseite Infoabend: Kalenderauswahl und Tag des Infoabends ----------
      [data-ia-kal] öffnet beim Klick die Auswahl (Apple, Google, Outlook, Datei).
      Am 08.01.2027 bis 21 Uhr wird „Direkt zum Infoabend“ zum Hauptbutton (Klasse ia-heute),

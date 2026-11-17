@@ -799,7 +799,7 @@
 .hf27-sr { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .hf27-s { display: none; }
 
-/* Streichpreis 299,99 € in Rot */
+/* Streichpreis 299 € in Rot */
 .hf27-earlybird__old, .hf27-price__old, .hf27-sticky s { color: #d62828; font-weight: 700; text-decoration: line-through; text-decoration-thickness: 2px; white-space: nowrap; }
 .hf27-earlybird__old { margin-left: 4px; }
 .hf27-book .hf27-price__old { font-size: 22px; line-height: 28px; opacity: 1; }
@@ -1566,3 +1566,7 @@
   body.ia-kal-offen .ia-band, body.ia-kal-offen .ia-band--schluss { z-index: 100000; }
   .ia-kalwahl.is-open .ia-kalwahl__menu { box-shadow: 0 0 0 100vmax rgba(0, 20, 20, .55), 0 -10px 40px rgba(0, 0, 0, .3); }
 }
+
+/* Sprungziele unter dem festen Header */
+.hf27 section[id] { scroll-margin-top: 124px; }
+@media (max-width: 768px) { .hf27 section[id] { scroll-margin-top: 106px; } }
