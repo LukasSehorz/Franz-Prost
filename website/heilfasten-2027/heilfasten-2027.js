@@ -171,33 +171,32 @@
     root.querySelectorAll('[data-ia-heute-href]').forEach(function (el) { el.href = el.getAttribute('data-ia-heute-href'); el.target = '_blank'; el.rel = 'noopener'; });
   }
 
-  /* ---------- Partner-Zuordnung (Digistore24-Promocode) ----------
-     Aus GitHub-Commit 503f106 übernommen.
-     Kommt ein Besucher über den Link eines Partners (…/heilfasten-2027/?aff=PARTNER),
-     hängt das Digistore-Skript den Partner an alle Kauf-Knöpfe an. So bekommt der
-     Partner seine Provision auch dann, wenn der Browser Cookies blockiert.
-     WICHTIG: muss NACH dem Setzen der Kauf-Links oben laufen, sonst wird der
-     Partner wieder überschrieben. Code aus Digistore: Einstellungen > Affiliate
-     Tracking > Promocode für Verkaufsseite (Produkt 763425). */
-  var ds = document.createElement('script');
-  ds.src = 'https://www.digistore24-scripts.com/service/digistore.js';
-  ds.async = true;
-  ds.onload = function () {
-    if (typeof window.digistorePromocode === 'function') {
-      window.digistorePromocode({ product_id: 763425, adjust_domain: true });
+  /* ---------- Partner-Zuordnung (Digistore24) ----------
+     Kommt ein Besucher über den Link eines Partners (…/heilfasten-2027/?aff=DIGISTORE-ID),
+     wird die Partner-ID aus der Adresse gelesen und an alle Kauf-Links angehängt
+     (Digistore-Parameter "aff" im Bestelllink). So bekommt der Partner seine Provision.
+     Bewusst ohne fremdes Skript und ohne Speichern im Browser (Datenschutz, keine
+     Einwilligung nötig). Ersetzt seit 17.11.2026 das Digistore-Promocode-Skript.
+     WICHTIG: muss NACH dem Setzen der Kauf-Links oben laufen. */
+  try {
+    var aff = new URLSearchParams(location.search).get('aff');
+    if (aff && /^[A-Za-z0-9_-]{1,64}$/.test(aff)) {
+      root.querySelectorAll('a[href*="checkout-ds24.com/product/763425"]').forEach(function (a) {
+        var u = new URL(a.href);
+        u.searchParams.set('aff', aff);
+        a.href = u.toString();
+      });
     }
-  };
-  document.head.appendChild(ds);
+  } catch (e) {}
 
   /* ---------- UTM-/Kampagnen-Parameter ins Formular übernehmen ---------- */
   var form = root.querySelector('#hf27-form');
   try {
     var qs = new URLSearchParams(location.search);
-    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'].forEach(function (k) {
+    /* nur aus der Adresse lesen, nichts im Browser speichern */
+    if (form) ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
       var v = qs.get(k);
-      if (v) { try { sessionStorage.setItem('hf27_' + k, v); } catch (e) {} }
-      else { try { v = sessionStorage.getItem('hf27_' + k); } catch (e) {} }
-      var input = form && form.querySelector('input[name="' + k + '"]');
+      var input = form.querySelector('input[name="' + k + '"]');
       if (input && v) input.value = v;
     });
   } catch (e) {}
