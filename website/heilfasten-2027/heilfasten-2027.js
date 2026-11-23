@@ -9,7 +9,8 @@
      danach automatisch zum normalen Preis.
      ------------------------------------------------------------------ */
   var BUY_URL = 'https://www.checkout-ds24.com/product/763425';
-  var BUY_URL_EARLY = BUY_URL + '?voucher=FRUEHBUCHER2027';
+  // Early Bird: eigenes Digistore-Bestellformular 256631 (Early-Bird-Kasten, Gäste, Termine), danach wieder das Standardformular
+  var BUY_URL_EARLY = BUY_URL + '/256631?voucher=FRUEHBUCHER2027';
   var EARLY_END = new Date('2027-01-09T00:00:00+01:00'); // Early-Bird gilt bis 08.01.2027, 23:59 Uhr
   var FORM_ENDPOINT = ''; // nur für ein optionales Formular (#hf27-form), derzeit nicht auf der Seite
 
