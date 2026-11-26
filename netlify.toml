@@ -9,6 +9,13 @@
   [headers.values]
     Content-Type = "text/calendar; charset=utf-8"
 
+# Mail-Bausteine fuer HubSpot: duerfen vom HubSpot-Editor geladen werden, nicht in Suchmaschinen
+[[headers]]
+  for = "/mail/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://app-eu1.hubspot.com"
+    X-Robots-Tag = "noindex"
+
 # Kurze Adresse für Stories und Flyer: akademie-besseres-leben.eu/infoabend -> Infoabend-Seite
 # (302, damit die Kurzadresse später auf einen anderen Abend zeigen kann; Partner-Kennung ?aff= bleibt erhalten)
 [[redirects]]
