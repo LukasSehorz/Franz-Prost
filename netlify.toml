@@ -9,6 +9,17 @@
   [headers.values]
     Content-Type = "text/calendar; charset=utf-8"
 
+# Kurze Adresse für Stories und Flyer: akademie-besseres-leben.eu/infoabend -> Infoabend-Seite
+# (302, damit die Kurzadresse später auf einen anderen Abend zeigen kann; Partner-Kennung ?aff= bleibt erhalten)
+[[redirects]]
+  from = "/infoabend"
+  to = "/heilfasten-2027/infoabend/"
+  status = 302
+[[redirects]]
+  from = "/infoabend/"
+  to = "/heilfasten-2027/infoabend/"
+  status = 302
+
 # SEO beim Umzug von WordPress: alte Adressen, die es auf der neuen Seite nicht mehr gibt,
 # dauerhaft (301) auf die passende Seite umleiten, damit Google nichts verliert.
 [[redirects]]
